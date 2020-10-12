@@ -32,25 +32,25 @@ var_dump($output);
 
 ### Domain
 
-[X] Details
-[X] Subdomains
-[ ] Tags
-[X] WHOIS
-[ ] Search
-[ ] Statistics
-[ ] Associated domains
-[ ] SSL Certificates (Pages)
-[ ] SSL Certificates (Stream)
+- [X] Details
+- [X] Subdomains
+- [ ] Tags
+- [X] WHOIS
+- [ ] Search
+- [ ] Statistics
+- [ ] Associated domains
+- [ ] SSL Certificates (Pages)
+- [ ] SSL Certificates (Stream)
 
 ### History
 
-[X] DNS History
-[X] WHOIS History
+- [X] DNS History
+- [X] WHOIS History
 
 ### IPs
 
-[X] Neighbors
-[ ] Search with DSL
-[ ] Statistics
-[X] Whois
-[X] Useragents
+- [X] Neighbors
+- [ ] Search with DSL
+- [ ] Statistics
+- [X] Whois
+- [X] Useragents
