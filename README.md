@@ -34,11 +34,11 @@ var_dump($output);
 
 - [X] Details
 - [X] Subdomains
-- [ ] Tags
+- [X] Tags
 - [X] WHOIS
 - [ ] Search
 - [ ] Statistics
-- [ ] Associated domains
+- [X] Associated domains
 - [ ] SSL Certificates (Pages)
 - [ ] SSL Certificates (Stream)
 
