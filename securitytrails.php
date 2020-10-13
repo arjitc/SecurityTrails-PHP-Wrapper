@@ -66,6 +66,22 @@ class SecurityTrails {
 		
 	}
 
+	function getAssociatedDomains($domain) {
+		
+		$ch = curl_init('https://api.securitytrails.com/v1/domain/'.$domain.'/associated');
+		$headers = array(
+			'apikey:'.$this->APIKey
+		);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+		$response = curl_exec($ch); // execute!
+		curl_close($ch); // close the connection, release resources used
+		
+		return $response; // return result
+		
+	}
+
 	function getDNSHistory($domain, $record_type) {
 		
 		$ch = curl_init('https://api.securitytrails.com/v1/history/'.$domain.'/dns/'.$record_type);
