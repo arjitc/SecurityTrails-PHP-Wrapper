@@ -73,5 +73,5 @@ var_dump($output);
 
 ### Firehose
 
-- [ ] Certificate Transparency
+- [X] Certificate Transparency
 

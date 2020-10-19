@@ -12,6 +12,8 @@ class SecurityTrails {
 	public $domain;
 	public $record_type;
 	public $ip_address;
+	public $start_time;
+	public $end_time;
 
 	function __construct($APIKey) {
 		$this->APIKey = $APIKey;
@@ -213,6 +215,22 @@ class SecurityTrails {
 	function getIPUseragents($ip_address) {
 		
 		$ch = curl_init('https://api.securitytrails.com/v1/ips/nearby/'.$ip_address.'/useragents?page=1');
+		$headers = array(
+			'apikey:'.$this->APIKey
+		);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+		$response = curl_exec($ch); // execute!
+		curl_close($ch); // close the connection, release resources used
+		
+		return $response; // return result
+		
+	}
+
+	function getFirehoseCertificateTransparency($start_time, $end_time) {
+		
+		$ch = curl_init('https://api.securitytrails.com/v1/firehose/ct-logs?start='.$start.'&end='.$end);
 		$headers = array(
 			'apikey:'.$this->APIKey
 		);
