@@ -64,3 +64,14 @@ var_dump($output);
 - [ ] Statistics
 - [X] Whois
 - [X] Useragents
+
+### Feeds
+
+- [ ] Domains
+- [ ] DMARC
+- [ ] Subdomains
+
+### Firehose
+
+- [ ] Certificate Transparency
+
