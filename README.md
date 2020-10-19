@@ -30,6 +30,16 @@ var_dump($output);
 
 ## Implemented methods
 
+### General
+
+- [X] Ping
+- [X] Usage
+
+### Company
+
+- [X] Details
+- [X] Associated IPs
+
 ### Domain
 
 - [X] Details

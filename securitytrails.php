@@ -17,6 +17,70 @@ class SecurityTrails {
 		$this->APIKey = $APIKey;
 	}
 
+	function checkPing() {
+		
+		$ch = curl_init('https://api.securitytrails.com/v1/ping/');
+		$headers = array(
+			'apikey:'.$this->APIKey
+		);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+		$response = curl_exec($ch); // execute!
+		curl_close($ch); // close the connection, release resources used
+		
+		return $response; // return result
+		
+	}
+
+	function checkUsage() {
+		
+		$ch = curl_init('https://api.securitytrails.com/v1/account/usage/');
+		$headers = array(
+			'apikey:'.$this->APIKey
+		);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+		$response = curl_exec($ch); // execute!
+		curl_close($ch); // close the connection, release resources used
+		
+		return $response; // return result
+		
+	}
+
+	function getCompanyDetails($domain) {
+		
+		$ch = curl_init('https://api.securitytrails.com/v1/company/'.$domain);
+		$headers = array(
+			'apikey:'.$this->APIKey
+		);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+		$response = curl_exec($ch); // execute!
+		curl_close($ch); // close the connection, release resources used
+		
+		return $response; // return result
+		
+	}
+
+	function getCompanyAssociatedIPs($domain) {
+		
+		$ch = curl_init('https://api.securitytrails.com/v1/company/'.$domain/.'/associated-ips');
+		$headers = array(
+			'apikey:'.$this->APIKey
+		);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+		$response = curl_exec($ch); // execute!
+		curl_close($ch); // close the connection, release resources used
+		
+		return $response; // return result
+		
+	}
+
 	function getDomain($domain) {
 		
 		$ch = curl_init('https://api.securitytrails.com/v1/domain/'.$domain);
