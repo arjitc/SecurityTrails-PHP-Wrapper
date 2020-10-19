@@ -49,8 +49,8 @@ var_dump($output);
 - [ ] Search
 - [ ] Statistics
 - [X] Associated domains
-- [ ] SSL Certificates (Pages)
-- [ ] SSL Certificates (Stream)
+- [X] SSL Certificates (Pages)
+- [X] SSL Certificates (Stream)
 
 ### History
 

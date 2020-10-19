@@ -14,6 +14,9 @@ class SecurityTrails {
 	public $ip_address;
 	public $start_time;
 	public $end_time;
+	public $include_subdomains;
+	public $status;
+	public $page_number;
 
 	function __construct($APIKey) {
 		$this->APIKey = $APIKey;
@@ -121,6 +124,40 @@ class SecurityTrails {
 		$ch = curl_init('https://api.securitytrails.com/v1/domain/'.$domain.'/subdomains?children_only=false');
 		$headers = array(
 			'apikey:'.$this->APIKey
+		);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+		$response = curl_exec($ch); // execute!
+		curl_close($ch); // close the connection, release resources used
+		
+		return $response; // return result
+		
+	}
+
+	function getSSLCertificatesPages($domain, $include_subdomains, $status, $page_number) {
+		
+		$ch = curl_init('https://api.securitytrails.com/v1/domain/'.$domain.'/ssl?include_subdomains='.$include_subdomains.'&status='.$status.'&page='.$page_number);
+		$headers = array(
+			'apikey:'.$this->APIKey,
+			'accept: application/json'
+		);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+		$response = curl_exec($ch); // execute!
+		curl_close($ch); // close the connection, release resources used
+		
+		return $response; // return result
+		
+	}
+
+	function getSSLCertificatesStream($domain, $include_subdomains, $status) {
+		
+		$ch = curl_init('https://api.securitytrails.com/v1/domain/'.$domain.'/ssl_stream?include_subdomains='.$include_subdomains.'&status='.$status);
+		$headers = array(
+			'apikey:'.$this->APIKey,
+			'accept: application/json'
 		);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
