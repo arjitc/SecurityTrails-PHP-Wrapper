@@ -72,7 +72,7 @@ class SecurityTrails {
 
 	function getCompanyAssociatedIPs($domain) {
 		
-		$ch = curl_init('https://api.securitytrails.com/v1/company/'.$domain/.'/associated-ips');
+		$ch = curl_init('https://api.securitytrails.com/v1/company/'.$domain.'/associated-ips');
 		$headers = array(
 			'apikey:'.$this->APIKey
 		);
