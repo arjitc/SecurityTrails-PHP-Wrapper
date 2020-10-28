@@ -202,6 +202,8 @@ class SecurityTrails {
 	}
 
 	function getDNSHistory($domain, $record_type) {
+
+		$record_type = strtolower($record_type);
 		
 		$ch = curl_init('https://api.securitytrails.com/v1/history/'.$domain.'/dns/'.$record_type);
 		$headers = array(
