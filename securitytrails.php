@@ -135,6 +135,22 @@ class SecurityTrails {
 		
 	}
 
+	function getDomainWHOIS($domain) {
+		
+		$ch = curl_init('https://api.securitytrails.com/v1/domain/'.$domain.'/whois');
+		$headers = array(
+			'apikey:'.$this->APIKey
+		);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+		$response = curl_exec($ch); // execute!
+		curl_close($ch); // close the connection, release resources used
+		
+		return $response; // return result
+		
+	}
+
 	function getSSLCertificatesPages($domain, $include_subdomains, $status, $page_number) {
 		
 		$ch = curl_init('https://api.securitytrails.com/v1/domain/'.$domain.'/ssl?include_subdomains='.$include_subdomains.'&status='.$status.'&page='.$page_number);
