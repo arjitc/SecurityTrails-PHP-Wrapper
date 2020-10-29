@@ -251,7 +251,7 @@ class SecurityTrails {
 		
 	}
 
-	function getIPWhois($ip_address) {
+	function getIPWHOIS($ip_address) {
 		
 		$ch = curl_init('https://api.securitytrails.com/v1/ips/nearby/'.$ip_address.'/whois');
 		$headers = array(
