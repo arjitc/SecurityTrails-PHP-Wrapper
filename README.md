@@ -3,6 +3,8 @@ A PHP based wrapper for SecurityTrails
 
 Based off https://docs.securitytrails.com/reference
 
+API Wrapper Function Documentation: https://github.com/arjitc/SecurityTrails-PHP-Wrapper/wiki
+
 ## Usage examples
 
 ### getDomain Details
